@@ -45,7 +45,7 @@ def root():
 
 @app.route('/home/<username>', methods=['GET','POST'])
 def home(username):
-    global hashPass
+    # global hashPass
     with dbConnectionUsers() as con:
         c=con.cursor()
         c.execute('SELECT * FROM users WHERE username=?',(username,))
