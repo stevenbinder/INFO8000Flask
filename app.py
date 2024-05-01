@@ -43,7 +43,7 @@ def root():
                 return redirect(url_for('home',username=username))
     return render_template('login.html',title='login')
 
-@app.route('/home/<username>', methods=['GET','POST'])
+@app.route('https://stevenbinderinfo8000.dynv6.net/home/<username>', methods=['GET','POST'])
 def home(username):
     global hashPass
     with dbConnectionUsers() as con:
