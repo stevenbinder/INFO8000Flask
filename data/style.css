@@ -1,0 +1,67 @@
+/* Sets the background color of the webpage */
+body {
+    background-color: beige;
+}
+
+/* Sets the appearance of any class named header  */
+header {
+    padding: 5px;
+    background-color: rgb(128, 117, 0);
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    margin-left: 25%;
+    margin-right: 25%;
+    font: 1.2rem "fira Sans", sans-serif;
+}
+
+table {
+    border: 1px solid black;
+    padding: 5px;
+    background-color: rgb(128, 117, 0);
+    text-align: left;
+    border-style: solid;
+    border-color: black;
+    margin-left: 2%;
+    margin-right: 2%;
+    font: 1.2rem "fira Sans", sans-serif;
+}
+th,td{
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+/* Sets the appearance of .container */
+.container {
+    padding: 5px;
+}
+
+/* Sets the appearance of .item-1  */
+.item-1 {
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    background-color: teal;
+    margin-left: 25%;
+    margin-right: 25%;
+    font: 1.2rem "fira Sans", serif;
+}
+
+.item-2 {
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    text-align: left;
+    background-color: teal;
+    margin-left: 2%;
+    margin-right: 2%;
+    font: 1.2rem "fira Sans", serif;
+}
+
+/* Sets the appearance of the footer  */
+footer {
+    padding: 5px;
+    text-align: center;
+    font: 1.2rem "fira Sans", sans-serif;
+}

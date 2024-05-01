@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPage</title>
+    <link rel="stylesheet" href="../data/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <th>IP Address</th>
+                    <th>Date of Upload</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>State</th>
+                    <th>County</th>
+                    <th>Weather</th>
+                    <th>File Name</th>
+                    <th>File Description</th>
+                    <th>Gemini's Description</th>
+                </tr>
+            
+                {% for item in table %}
+                <tr>
+                    <td>{{item[0]}}</td>
+                    <td>{{item[2]}}</td>
+                    <td>{{item[3]}}</td>
+                    <td>{{item[4]}}</td>
+                    <td>{{item[5]}}</td>
+                    <td>{{item[8]}}</td>
+                    <td>{{item[9]}}</td>
+                    <td>{{item[10]}}</td>
+                    <td>{{item[7]}}</td>
+                    <td>{{item[6]}}</td>
+                    <td>{{item[11]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="item-2">
+            To generate a custom table, CSV file, or JSON report, please fill out the following parameters.
+
+            <form method='GET' action="{{url_for('data')}}">
+                Output format (HTML,CSV,or JSON):<label for ='file_type'></label>
+                <select name="file_type" id="file_type">
+                    <option value="HTML">HTML</option>
+                    <option value="CSV">CSV</option>
+                    <option value="JSON">JSON</option>
+                    </select><br/>
+                Start Date (in the format of YYYY-MM-DD): <input name="start_date" type="text"/><br/>
+                End Date (in the format of YYYY-MM-DD): <input name="end_date" type="text"/><br/>
+                Latitude: <input name="lat" type="text"/><br/>
+                Longitude: <input name="lng" type="text"/><br/>
+                Distance from requested latitude & longitude (Kilometers): <input name="dist" type="'text"/><br/>
+                Max number of entries to display: <input name='max' type='text'/><br/>
+                Sorting: <label for="sort"></label>
+                <select name="sort" id="sort">
+                    <option value="newest">newest</option>
+                    <option value="oldest">oldest</option>
+                </select><br/>
+                <input type="submit" value="Generate report">
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+    
+

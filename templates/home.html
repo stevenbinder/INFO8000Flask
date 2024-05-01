@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPage</title>
+    <link rel="stylesheet" href="../data/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <header>
+            <p>Hello {{username}}!</p>
+            <p> Your API key is: {{hashPass}}</p>
+        </header>
+    </div>
+    
+    <div class="container">
+        <div class="item-1">
+            <form action='/report' method='post' enctype='multipart/form-data'>
+                Description: <input name='des' type='text'/><br/>
+                File: <input name='file' type='file'/><br/>
+                <input  type='submit' />
+            </form>
+            <br/>
+            <form action='/data' >
+                Click here to view existing entries:
+                <input  type='submit' value='Data entries' />
+            </form>
+
+        </div>
+    </div>
+    <footer>
+        <form action='/' method='post'>
+            <input type='submit' value='Log Out'>
+    </footer>
+
+    
+    </form>
+
+</body>

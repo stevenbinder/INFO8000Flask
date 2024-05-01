@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPage</title>
+    <link rel="stylesheet" href="../data/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <header>
+            <p>Upload sucessful!</p>
+        </header>
+    </div>
+    <div class="container">
+        <div class="item-1">
+
+            <p> You uploaded {{fileName}} with the description: {{des}} </p>
+            <p> Google Gemini classified your description as {{categorization}}
+            <p> Your IP address is {{ipAdd}} and corresponds to the GPS coordinates: {{lat}} & {{lon}}  </p>
+            <p> You are located in {{county}}, {{state}} </p>
+            <p> Your current temperature is {{curTempC}} C and the wind speed is {{curWindKmH}} km/hr  </p>
+            <p></p>
+            <p>click here if you would like to view all reports</p>
+            <form action='/data'>
+                <input type='submit' value='Access data table'>
+            </form>  
+        </div>
+    </div>
+    <footer>
+        <form action='/' method='post'>
+            <input type='submit' value='Log Out'>
+        </form>
+    </footer>
+      
+
+    
+
+</body>
