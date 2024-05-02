@@ -150,7 +150,9 @@ def data():
                 lng2=np.deg2rad(float(entry[5]))
                 distance=(2*6371)*np.arcsin(np.sqrt(((np.sin((lat2-lat1)/2)**2))+(np.cos(lat1))*(np.cos(lat2))*((np.sin((lng2-lng1)/2)**2))))
                 if distance<dist:
-                    table.append(entry)  
+                    table.append(entry)
+    if max!='':
+        table=table[:int(max)]  
     if file_type=='CSV':
         csvData=pd.DataFrame(data=table)
         csvData=csvData.drop(labels=[1,12],axis=1)
