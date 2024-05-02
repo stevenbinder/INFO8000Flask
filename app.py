@@ -6,9 +6,9 @@ import pandas as pd
 import requests
 import json
 import numpy as np
-from passlib.hash import sha256_crypt
 import bcrypt
 from operator import itemgetter
+
 
 app=Flask(__name__,static_folder='data')
 username=''
@@ -45,7 +45,6 @@ def root():
 
 @app.route('/home/<username>', methods=['GET','POST'])
 def home(username):
-    # global hashPass
     with dbConnectionUsers() as con:
         c=con.cursor()
         c.execute('SELECT * FROM users WHERE username=?',(username,))
@@ -54,16 +53,15 @@ def home(username):
             username=res[0]
             password=res[1]
             hashPass=res[2]
-            return render_template('home.html',username=username,hashPass=hashPass),hashPass
+            return render_template('home.html',username=username,hashPass=hashPass)
 
 @app.route('/report', methods=['POST'])
 def report():
     des=request.form.get('des','')
     file=request.files.get('file',None)
-    ipAdd=str(request.remote_addr)
-    ipAdd=ipAdd.replace(' ','')
-    if ipAdd=='127.0.0.1':
-        ipAdd='47.4.229.90'     
+    ipAdd=str(request.environ['HTTP_X_FORWARDED_FOR'].split(','))
+    ipAdd=ipAdd[2:16]
+    ipAdd=ipAdd.replace(' ','')     
     resp=requests.get(f'https://geolocation-db.com/jsonp/{ipAdd}')
     res=resp.content.decode()
     res=res.split("(")[1].strip(")")
@@ -100,7 +98,6 @@ def data():
     table=[]
     if request.method=='GET':
         res=request.args
-
     file_type=res.get('file_type',default='',type=str)
     start_date=res.get('start_date',default='',type=str)
     end_date=res.get('end_date',default='',type=str)
