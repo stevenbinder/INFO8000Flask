@@ -60,7 +60,10 @@ def report():
     des=request.form.get('des','')
     file=request.files.get('file',None)
     ipAdd=str(request.environ['HTTP_X_FORWARDED_FOR'].split(','))
-    ipAdd=ipAdd[2:16]
+    ipAdd=ipAdd
+    ipAdd=ipAdd.replace("'",'')
+    ipAdd=ipAdd.replace("[",'')
+    ipAdd=ipAdd.replace("]",'')
     ipAdd=ipAdd.replace(' ','')     
     resp=requests.get(f'https://geolocation-db.com/jsonp/{ipAdd}')
     res=resp.content.decode()
